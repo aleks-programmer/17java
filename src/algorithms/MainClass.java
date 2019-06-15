@@ -192,6 +192,10 @@ public class MainClass {
         arrayInsObject.display();
         System.out.println("end ArrInsObj app");
 
+        System.out.println("begin towers of Hanoi app");
+        doTowers(3, 'A', 'B', 'C');
+        System.out.println("end towers of Hanoi app");
+
     }
 
     private static boolean checkForDuplicate(long[] array, long value) {
@@ -199,5 +203,15 @@ public class MainClass {
             if (anArray == value)
                 return true;
         return false;
+    }
+
+    public static void doTowers(int topN, char from, char inter, char to) {
+        if (topN == 1) {
+            System.out.println("Disc 1 from " + from + " to " + to);
+        } else {
+            doTowers(topN - 1, from, to, inter); // from -> inter
+            System.out.println("Disc " + topN + " from " + from + " to " + to);
+            doTowers(topN - 1, inter, from, to); // inter -> to
+        }
     }
 }
