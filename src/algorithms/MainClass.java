@@ -21,28 +21,28 @@ public class MainClass {
         arr.setElem(8, 66);
         arr.setElem(9, 33);
         size = 10;
-        for(i = 0; i < size; i++)
+        for (i = 0; i < size; i++)
             System.out.println(arr.getElem(i));
         System.out.println("");
 
         int searchKey = 26;
-        for(i = 0; i < size; i++)
-            if(searchKey == arr.getElem(i))
+        for (i = 0; i < size; i++)
+            if (searchKey == arr.getElem(i))
                 break;
-        if(size == i)
+        if (size == i)
             System.out.println("Cannot find searchKey = " + searchKey);
         else
             System.out.println("Found searchKey = " + searchKey);
 
         int searchDelete = 55;
-        for(i = 0; i < size; i++)
-            if(searchDelete == arr.getElem(i))
+        for (i = 0; i < size; i++)
+            if (searchDelete == arr.getElem(i))
                 break;
-        for(int k = i; k < size; k++)
+        for (int k = i; k < size; k++)
             arr.setElem(k, arr.getElem(k + 1));
         size--;
-        for(i = 0; i < size; i++)
-            System.out.print( arr.getElem(i) + " ");
+        for (i = 0; i < size; i++)
+            System.out.print(arr.getElem(i) + " ");
         System.out.println("end LowArray app");
 
         System.out.println("begin HighArray app");
@@ -58,12 +58,12 @@ public class MainClass {
         arrHigh.display();
         int searchKeyHA = 26;
         boolean findOK = arrHigh.find(searchKeyHA);
-        if(findOK)
+        if (findOK)
             System.out.println("Found search key = " + searchKeyHA);
         else
             System.out.println("Cannot find search key = " + searchKeyHA);
         long maxEl = arrHigh.getMax();
-        if(maxEl == -1)
+        if (maxEl == -1)
             System.out.println("Array is empty");
         else
             System.out.println("Max element for array is " + maxEl);
@@ -75,24 +75,23 @@ public class MainClass {
 //        else
 //            System.out.println("Array is empty");
         long[] sortedArray = new long[arrHigh.getSize()];
-        while(true) {
+        while (true) {
             long maxElSort = arrHigh.getMax();
             if (maxElSort == -1) {
                 System.out.println("Array is empty");
                 break;
-            }
-            else {
+            } else {
                 sortedArray[arrHigh.getSize() - 1] = maxElSort;
                 arrHigh.removeMax();
             }
         }
         arrHigh.display();
-        for(int g = 0; g < sortedArray.length; g++)
+        for (int g = 0; g < sortedArray.length; g++)
             System.out.print(sortedArray[g] + " ");
         System.out.println(" sorted array");
         int deleteKey = 55;
         boolean deleteOK = arrHigh.delete(deleteKey);
-        if(deleteOK)
+        if (deleteOK)
             System.out.println("Deleted 'delete key' = " + deleteKey);
         else
             System.out.println("Cannot find 'delete key' = " + searchKeyHA);
@@ -108,13 +107,13 @@ public class MainClass {
         orderedArray.display();
         int findKey = 16;
         int foundIndex = orderedArray.find(findKey);
-        if(foundIndex != orderedArray.getSize())
+        if (foundIndex != orderedArray.getSize())
             System.out.println("Found key = " + foundIndex + " for key value = " + findKey);
         else
             System.out.println("Cannot find key for key value = " + findKey);
         int deleteKeyForOrderedArr = 16;
         boolean deleteIDInOrderedArrOK = orderedArray.delete(deleteKeyForOrderedArr);
-        if(deleteIDInOrderedArrOK)
+        if (deleteIDInOrderedArrOK)
             System.out.println("Deleted key value = " + deleteKeyForOrderedArr);
         else
             System.out.println("Cannot delete. Key value = " + deleteKeyForOrderedArr + " is not found");
@@ -122,8 +121,8 @@ public class MainClass {
         System.out.println("begin 2 arrays");
         long[] arr1 = new long[3];
         long[] arr2 = new long[3];
-        for(int m = 0; m <arr1.length; m++) {
-            while(true) {
+        for (int m = 0; m < arr1.length; m++) {
+            while (true) {
                 long temp = (long) (Math.random() * 100);
                 if (!checkForDuplicate(arr1, temp)) {
                     arr1[m] = temp;
@@ -134,8 +133,8 @@ public class MainClass {
             System.out.print(arr1[m] + " ");
         }
         System.out.println(" ");
-        for(int n = 0; n <arr2.length; n++) {
-            while(true) {
+        for (int n = 0; n < arr2.length; n++) {
+            while (true) {
                 long temp = (long) (Math.random() * 100);
                 if (!checkForDuplicate(arr2, temp)) {
                     arr2[n] = temp;
@@ -154,7 +153,11 @@ public class MainClass {
 
         System.out.println("begin BubbleSort app");
         ArrayBub arrayBub = new ArrayBub(10);
-        arrayBub.insert(19); arrayBub.insert(66); arrayBub.insert(3); arrayBub.insert(68); arrayBub.insert(7);
+        arrayBub.insert(19);
+        arrayBub.insert(66);
+        arrayBub.insert(3);
+        arrayBub.insert(68);
+        arrayBub.insert(7);
         arrayBub.display();
         arrayBub.bubbleSort();
         arrayBub.display();
@@ -162,7 +165,11 @@ public class MainClass {
 
         System.out.println("begin SelSort app");
         ArraySel arraySel = new ArraySel(10);
-        arraySel.insert(19); arraySel.insert(66); arraySel.insert(3); arraySel.insert(68); arraySel.insert(7);
+        arraySel.insert(19);
+        arraySel.insert(66);
+        arraySel.insert(3);
+        arraySel.insert(68);
+        arraySel.insert(7);
         arraySel.display();
         arraySel.selectionSort();
         arraySel.display();
@@ -171,10 +178,21 @@ public class MainClass {
         System.out.println("begin CharWord app");
         char[] arrCh1 = new char[10];
         char[] arrCh2 = new char[10];
-        arrCh1[0] = 'c'; arrCh1[1] = 'g'; arrCh1[2] = 'c'; arrCh1[3] = 'a'; arrCh1[4] = 'b'; arrCh1[5] = 'c'; arrCh1[6] = 'd';
-        arrCh2[0] = 'b'; arrCh2[1] = 'a'; arrCh2[2] = 'c'; arrCh2[3] = 'c'; arrCh2[4] = 'c'; arrCh2[5] = 'g';
-        boolean isWordValid = CharWord.isWordValid(arrCh2,arrCh1);
-        if(isWordValid)
+        arrCh1[0] = 'c';
+        arrCh1[1] = 'g';
+        arrCh1[2] = 'c';
+        arrCh1[3] = 'a';
+        arrCh1[4] = 'b';
+        arrCh1[5] = 'c';
+        arrCh1[6] = 'd';
+        arrCh2[0] = 'b';
+        arrCh2[1] = 'a';
+        arrCh2[2] = 'c';
+        arrCh2[3] = 'c';
+        arrCh2[4] = 'c';
+        arrCh2[5] = 'g';
+        boolean isWordValid = CharWord.isWordValid(arrCh2, arrCh1);
+        if (isWordValid)
             System.out.println("Word Valid");
         else
             System.out.println("Word Not Valid");
@@ -196,6 +214,17 @@ public class MainClass {
         doTowers(3, 'A', 'B', 'C');
         System.out.println("end towers of Hanoi app");
 
+        System.out.println("begin mergesort");
+        int[] a = {1,8,9};
+        int[] b = {10,88,99};
+        int[] c = new int[6];
+        merge(a,a.length,b,b.length,c);
+        for (int i1 : c) {
+            System.out.println(i1);
+        }
+
+        System.out.println("end mergesort");
+
     }
 
     private static boolean checkForDuplicate(long[] array, long value) {
@@ -213,5 +242,29 @@ public class MainClass {
             System.out.println("Disc " + topN + " from " + from + " to " + to);
             doTowers(topN - 1, inter, from, to); // inter -> to
         }
+    }
+
+    public static void merge(int[] arrayA, int sizeA, int[] arrayB, int sizeB, int[] arrayC) {
+        int aDex = 0, bDex = 0, cDex = 0;
+
+        while (aDex < sizeA && bDex < sizeB) {
+            if (arrayA[aDex] < arrayB[bDex]) {
+                arrayC[cDex++] = arrayA[aDex++];
+            } else {
+                arrayC[cDex++] = arrayB[bDex++];
+            }
+        }
+        while (aDex < sizeA) {
+
+            arrayC[cDex++] = arrayA[aDex++];
+
+        }
+        while (bDex < sizeB) {
+
+            arrayC[cDex++] = arrayB[bDex++];
+
+        }
+
+
     }
 }
