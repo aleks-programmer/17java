@@ -21,15 +21,14 @@ public class ArrayIns {
     public void insertionSort()
     {
         int i, in;
-        for(i = 1; i < nElems; i++) {
-            int out = i;
-            in = out;
-            long temp = a[out];
-            while(in > 0 && a[i-1] >= temp) {
-                a[i] = a[i-1];
-                --i;
+        for (i = 1; i < nElems; i++) {
+            long temp = a[i];
+            in = i;
+            while (in > 0 && a[in - 1] > temp) {
+                a[in] = a[in - 1];
+                in--;
             }
-            a[i] = temp;
+            a[in] = temp;
         }
 
     }

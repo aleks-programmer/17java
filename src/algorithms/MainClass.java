@@ -648,6 +648,265 @@ public class MainClass {
         }
     }
 
+    static int tripleStep(int steps) {
+        return tripleStepRecursive(steps, new int[steps + 1]);
+    }
+
+    static int tripleStepRecursive(int n, int[] mem) {
+        if (n < 0) {
+            return 0;
+        }
+
+        if (n == 0) {
+            return 1;
+        }
+
+        if (mem[n] == 0) {
+            mem[n] = tripleStepRecursive(n - 1, mem) + tripleStepRecursive(n - 2, mem) + tripleStepRecursive(n - 3,
+                    mem);
+        }
+
+        return mem[n];
+    }
+
+    static int magicIndex(int[] arr) {
+        for (int i = 0, arrLength = arr.length; i < arrLength; i++) {
+            if (arr[i] == i) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    static List<List<Integer>> powerSet(List<Integer> list) {
+        List<List<Integer>> powerSet;
+        if (list.size() > 1) {
+            powerSet = powerSetRec(list, null);
+        } else {
+            powerSet = new ArrayList<>();
+        }
+
+        powerSet.add(Collections.<Integer>emptyList());
+        for (Integer integer : list) {
+            powerSet.add(Collections.singletonList(integer));
+        }
+
+        return powerSet;
+    }
+
+    static List<List<Integer>> powerSetRec(List<Integer> subList, Integer prev) {
+        List<Integer> subListTemp = new ArrayList<>(subList);
+
+        if (subList.size() == 2) {
+            List<List<Integer>> result = new ArrayList<>();
+            if (prev != null) {
+                for (Integer integer : subList) {
+                    ArrayList<Integer> integers = new ArrayList<>();
+                    integers.add(integer);
+                    integers.add(prev);
+                    result.add(integers);
+                }
+
+                result.add(subListTemp);
+            }
+
+            return result;
+        }
+
+        List<List<Integer>> powerSet = powerSetRec(subList.subList(0, subList.size() - 1),
+                subList.get(subList.size() - 1));
+
+        if (prev != null) {
+            List<List<Integer>> powerSetTemp = new ArrayList<>();
+            for (List<Integer> powerSetList : powerSet) {
+                List<Integer> subListTemp1 = new ArrayList<>(powerSetList);
+                subListTemp1.add(prev);
+                powerSetTemp.add(subListTemp1);
+            }
+
+            powerSet.addAll(powerSetTemp);
+        }
+
+        return powerSet;
+    }
+
+    public static int recursiveMultiply(int a, int b) {
+        int smaller = a < b ? a : b;
+        int bigger = a >= b ? a : b;
+
+        return recursiveMultiplyRec(smaller, bigger);
+    }
+
+    public static int recursiveMultiplyRec(int smaller, int bigger) {
+        if (smaller == 0) {
+            return 0;
+        } else if (smaller == 1) {
+            return bigger;
+        }
+
+        int d = smaller >> 1;
+        int half = recursiveMultiplyRec(d, bigger);
+
+        if (smaller % 2 == 1) {
+            return half + half + bigger;
+        } else {
+            return half + half;
+        }
+    }
+
+    public static void towersOfHanoi(Stack<Integer> source, Stack<Integer> destination, Stack<Integer> buffer,
+     int topN) {
+        if (topN == 1) {
+            destination.push(source.pop());
+            return;
+        } else if (topN == 2) {
+            towersOfHanoi(source, buffer, null, topN - 1);
+            towersOfHanoi(source, destination, null, topN - 1);
+            towersOfHanoi(buffer, destination, null, topN - 1);
+            return;
+        }
+
+        towersOfHanoi(source, buffer, destination, topN - 1);
+        towersOfHanoi(source, destination, null, 1);
+        towersOfHanoi(buffer, destination, source, topN - 1);
+    }
+
+    public static int permutationsWithoutDups(String str) {
+        if (str == null || str.length() == 0) return 0;
+        if (str.length() == 1) return 1;
+
+        Set<Character> set = new HashSet<>();
+        for (int i = 0; i < str.length(); i++) {
+            set.add(str.charAt(i));
+        }
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (Character character : set) {
+            stringBuilder.append(character);
+        }
+
+        String s = stringBuilder.toString();
+
+        return permutationsRec(s, s.length()).size();
+    }
+
+    public static int permutationsWithDups(String str) {
+        if (str == null || str.length() == 0) return 0;
+        if (str.length() == 1) return 1;
+
+        return permutationsRec(str, str.length()).size();
+    }
+
+    public static Set<String> permutationsRec(String str, int count) {
+        Set<String> result = new HashSet<>();
+
+        if (count == 2) {
+            result.add(str.substring(0, 2));
+            result.add("" + str.charAt(1) + str.charAt(0));
+
+            return result;
+        }
+
+        Set<String> strings = permutationsRec(str, count - 1);
+        for (String string : strings) {
+            char[] charArray = string.toCharArray();
+            for (int i = 0; i < charArray.length; i++) {
+                result.add(string.substring(0, i) + str.charAt(count - 1) + string.substring(i));
+
+                if (i == (charArray.length - 1)) {
+                    result.add(string + str.charAt(count - 1));
+                }
+            }
+        }
+
+        return result;
+    }
+
+    public static Set<String> parens(int n) {
+        if (n == 0) {
+            return new HashSet<>();
+        }
+
+        if (n == 1) {
+            Set<String> strs = new HashSet<>();
+            strs.add("()");
+
+            return strs;
+        }
+
+        Set<String> result = new HashSet<>();
+
+        Set<String> parens = parens(n - 1);
+        for (String p : parens) {
+            int prev = -1;
+            for (int i = 0; i < p.length(); i++) {
+                if (prev >= 0 && p.charAt(prev) == '(' && p.charAt(i) == ')') {
+                    result.add(p.substring(0, i + 1) + "()" + p.substring(i + 1));
+                    result.add(p.substring(0, prev) + "(" + p.substring(prev, i + 1) + ")" + p.substring(i + 1));
+                }
+
+                prev = i;
+            }
+        }
+
+        return result;
+    }
+
+    public static void paintFill(String[][] colors, String newColor, Point point) {
+        paintFillRec(colors, newColor, point, 0);
+    }
+
+    public static void paintFillRec(String[][] colors, String newColor, Point point, int xIndex) {
+        if (xIndex == colors.length) {
+            return;
+        }
+
+        for (int i = 0; i < colors[xIndex].length; i++) {
+            if (point.x != xIndex || point.y != i) {
+                colors[xIndex][i] = newColor;
+            }
+        }
+
+        paintFillRec(colors, newColor, point, xIndex + 1);
+    }
+
+    static class Point {
+        private int x;
+        private int y;
+
+        public Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public int getX() {
+            return x;
+        }
+
+        public int getY() {
+            return y;
+        }
+    }
+
+    public static int coins(int n) {
+        if (n <= 0) return 0;
+
+        return coinsRec(n, new int[n + 1]);
+    }
+
+    public static int coinsRec(int n, int[] mem) {
+        if (n < 0) return 0;
+        if (n == 0) return 1;
+
+        if (mem[n] == 0) {
+            mem[n] = coinsRec(n - 1, mem) + coinsRec(n - 5, mem) + coinsRec(n - 10, mem) + coinsRec(n - 25, mem);
+        }
+
+        return mem[n];
+    }
+
     public static void main(String[] args) {
         System.out.println("begin LowArray app");
         LowArray arr;
@@ -1795,7 +2054,7 @@ public class MainClass {
         node11.children = Arrays.asList(node22, node33);
         node22.children = Arrays.asList(node44, node55);
         node44.children = Arrays.asList(node66);
-//        breadthFirstSearch(node11, node66);
+        breadthFirstSearch(node11, node66);
         depthFirstSearch(node11, node33);
         List<List<Integer>> pathInBinaryTree = findPathInBinaryTree(root2, root1);
         System.out.println("Found path in binary tree: " + pathInBinaryTree);
@@ -1876,6 +2135,74 @@ public class MainClass {
         hashTable.remove(3);
         System.out.println("Hash table size after removing: " + hashTable.size());
         System.out.println("Hash table end");
+        System.out.println("Triple step start");
+        System.out.println("Triple step ways: " + tripleStep(3));
+        System.out.println("Triple step end");
+        System.out.println("Magic index start");
+        System.out.println("Magic index: " + magicIndex(new int[]{-1, 0, 2, 2}));
+        System.out.println("Magic index end");
+        System.out.println("Power set start");
+        System.out.println(powerSet(Arrays.asList(1, 2, 3, 4, 5)));
+        System.out.println("Power set end");
+        System.out.println("Recursive multiply start");
+        System.out.println("Recursive multiply: " + recursiveMultiply(7, 5));
+        System.out.println("Recursive multiply end");
+        System.out.println("Tower of Hanoi start");
+        Stack<Integer> source = new Stack<>();
+        source.push(1);
+        source.push(2);
+        source.push(3);
+        source.push(4);
+        source.push(5);
+        Stack<Integer> destination = new Stack<>();
+        Stack<Integer> buffer = new Stack<>();
+        towersOfHanoi(source, destination, buffer, source.size());
+        System.out.println(destination.toString());
+        System.out.println("Tower of Hanoi end");
+        System.out.println("Permutations without dups start");
+        System.out.println("Permutations without dups: " + permutationsWithoutDups("abcdd"));
+        System.out.println("Permutations without dups end");
+        System.out.println("Permutations with dups start");
+        System.out.println("Permutations with dups: " + permutationsWithDups("abca"));
+        System.out.println("Permutations with dups end");
+        System.out.println("Parens start");
+        System.out.println("Parens: " + parens(3));
+        System.out.println("Parens end");
+        System.out.println("Paint fill start");
+        String[][] strings = new String[3][3];
+        for (int k = 0, stringsLength = strings.length; k < stringsLength; k++) {
+            for (int i4 = 0, stringLength = strings[k].length; i4 < stringLength; i4++) {
+                String red = "red";
+                strings[k][i4] = red;
+                System.out.print("x: " + k);
+                System.out.print(", y: " + i4);
+                System.out.println(", color: " + red);
+            }
+        }
+
+        paintFill(strings, "blue", new Point(2, 2));
+        for (int k = 0, stringsLength = strings.length; k < stringsLength; k++) {
+            for (int i4 = 0, stringLength = strings[k].length; i4 < stringLength; i4++) {
+                System.out.print("x: " + k);
+                System.out.print(", y: " + i4);
+                System.out.println(", color: " + strings[k][i4]);
+            }
+        }
+        System.out.println("Paint fill end");
+        System.out.println("Coins start");
+        System.out.println("Coins: " + coins(7));
+        System.out.println("Coins end");
+        System.out.println("eight Queens start");
+        List<Integer[]> eightQueens = eightQueens();
+        for (int i4 = 0, eightQueensSize = eightQueens.size(); i4 < eightQueensSize; i4++) {
+            Integer[] eightQueen = eightQueens.get(i4);
+            System.out.println("Variant " + i4);
+            for (int k = 0; k < eightQueen.length; k++) {
+                Integer integer = eightQueen[k];
+                System.out.println("row, col: " + k + ", " + integer);
+            }
+        }
+        System.out.println("eight Queens end");
     }
 
     private static List<List<Integer>> findPathInBinaryTree(TreeNode find, TreeNode root) {
@@ -2147,15 +2474,15 @@ public class MainClass {
         }
     }
 
-    private static int partitionIt(int left, int right, int pivot, int[] arr) {
-        int leftPtr = left - 1;
-        int rightPtr = right;
+    private static int partitionIt(int left, int right, int pivot/* last value */, int[] arr) {
+        int leftPtr = left - 1; // -1
+        int rightPtr = right; // last
 
         while (true) {
-            while (arr[++leftPtr] < pivot) {
+            while (arr[++leftPtr] < pivot) { // until more than or equal pivot
             }
 
-            while (rightPtr > 0 && arr[--rightPtr] > pivot) {
+            while (rightPtr > 0 && arr[--rightPtr] > pivot) { // until first index or less than or equal pivot
             }
 
             if (leftPtr >= rightPtr) {
@@ -3252,6 +3579,62 @@ public class MainClass {
         }
     }
 
+    private static List<Integer[]> eightQueens() {
+        List<Integer[]> result = new ArrayList<>();
+        Integer[] cols = new Integer[8];
+
+        for (int col = 0; col < 8; col++) {
+            cols[7] = col;
+            for (int row = 6; row >= 0; row--) {
+                eightQueensRec(row, cols, result);
+                cols = new Integer[8];
+            }
+        }
+
+        return result;
+    }
+
+    private static void eightQueensRec(int curRow, Integer[] cols, List<Integer[]> result) {
+        if (curRow < 0) {
+            for (Integer i : cols) {
+                if (i == null) {
+                    return;
+                }
+            }
+
+            result.add(cols.clone());
+
+            return;
+        }
+
+        for (int col = 0; col < 8; col++) {
+            if (checkValid(col, curRow, cols)) {
+                cols[curRow] = col;
+                eightQueensRec(curRow - 1, cols, result);
+                cols[curRow] = null;
+            }
+        }
+    }
+
+    private static boolean checkValid(int curCol, int curRow, Integer[] cols) {
+        for (int row = curRow; row < 8; row++) {
+            Integer col = cols[row];
+
+            if (col != null) {
+                if (col == curCol) {
+                    return false;
+                }
+
+                if (Math.abs(col - curCol) == (row - curRow)) {
+                    return false;
+                }
+            }
+
+        }
+
+        return true;
+    }
+
     static class TreeNodeWithParent {
         int val;
         TreeNodeWithParent left;
@@ -3291,6 +3674,25 @@ public class MainClass {
         @Override
         public String getName() {
             return name;
+        }
+    }
+
+
+    static class Queen{
+        private String x;
+        private String y;
+
+        public Queen(String x, String y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public String getX() {
+            return x;
+        }
+
+        public String getY() {
+            return y;
         }
     }
 }

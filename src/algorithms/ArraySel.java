@@ -26,12 +26,12 @@ public class ArraySel {
     }
 
     public void selectionSort() {
-        for(int i=0; i < nElems - 1; i++) {
+        for (int i = 0; i < nElems - 1; i++) {
             int min = i;
             for (int j = i + 1; j < nElems; j++) {
-                if(a[j] < a[min]) {
+                if (a[j] < a[min]) {
+                    swap(j, min);
                     min = j;
-                    swap(i, min);
                 }
             }
         }
