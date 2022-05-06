@@ -2021,7 +2021,7 @@ public class MainClass {
         int insertion = insertion(1024, 19, 2, 6);
         System.out.println(insertion);
 
-        String s = BinaryToStaring(0.72, 32);
+        String s = binaryToString(0.72, 32);
         System.out.println(s);
 
         int i2 = flipBitToWin(1775);
@@ -3454,7 +3454,7 @@ public class MainClass {
         return (n & mask) | (m << i);
     }
 
-    private static String BinaryToStaring(double i, int k) {
+    private static String binaryToString(double i, int k) {
         int maxFranctional = k - 2;
         StringBuilder result = new StringBuilder("0.");
         if (i == 0) return String.valueOf(i);
