@@ -35,10 +35,10 @@ public class ArrayBub {
 
     public void bubbleSort()
     {
-        for(int i=0; i < nElems; i++)
-            for(int j = nElems-1; j > i; j--)
-                if(a[j] < a[j-1])
-                    swap(j, j-1);
+        for (int i = 0; i < nElems; i++)
+            for (int j = nElems - 1; j > 0; j--)
+                if (a[j] < a[j - 1])
+                    swap(j, j - 1);
     }
 
 }
