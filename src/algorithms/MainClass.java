@@ -3,6 +3,7 @@ package algorithms;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.*;
 
 /**
  * Created by User on 22.04.2015.
@@ -1077,6 +1078,18 @@ public class MainClass {
         arraySel.selectionSort();
         arraySel.display();
         System.out.println("end SelSort app");
+
+        System.out.println("begin InsSort app");
+        ArrayIns arrayIns = new ArrayIns(10);
+        arrayIns.insert(19);
+        arrayIns.insert(66);
+        arrayIns.insert(3);
+        arrayIns.insert(68);
+        arrayIns.insert(7);
+        arrayIns.display();
+        arrayIns.insertionSort();
+        arrayIns.display();
+        System.out.println("end InsSort app");
 
         System.out.println("begin CharWord app");
         char[] arrCh1 = new char[10];
