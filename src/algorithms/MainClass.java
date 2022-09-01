@@ -1091,6 +1091,17 @@ public class MainClass {
         arrayIns.display();
         System.out.println("end InsSort app");
 
+        System.out.println("begin ShellSort app");
+        ArrayIns arrayIns1 = new ArrayIns(10);
+        arrayIns1.insert(19);
+        arrayIns1.insert(66);
+        arrayIns1.insert(3);
+        arrayIns1.insert(68);
+        arrayIns1.insert(7);
+        arrayIns1.display();
+        arrayIns1.shellSort();
+        arrayIns1.display();
+        System.out.println("end ShellSort app");
         System.out.println("begin CharWord app");
         char[] arrCh1 = new char[10];
         char[] arrCh2 = new char[10];
@@ -1674,8 +1685,9 @@ public class MainClass {
         }
 
         System.out.println(n);
-        System.out.println("quickSort");
+        System.out.println("START quickSort");
         quickSort();
+        System.out.println("END quickSort");
         shellSOrt();
         System.out.println(11 % 4);
         System.out.println(isUnique("abcdefg"));
@@ -2033,6 +2045,18 @@ public class MainClass {
         System.out.println(i1);
         int insertion = insertion(1024, 19, 2, 6);
         System.out.println(insertion);
+
+        boolean bool = getBit(3, 1);
+        System.out.println("Get Bit: " + bool);
+
+        int num = setBit(3, 2);
+        System.out.println("Set Bit: " + num);
+
+        int r = clearBit(3, 1);
+        System.out.println("Clear Bit: " + r);
+
+        int ur = updateBit(3, 1, false);
+        System.out.println("Update Bit: " + ur);
 
         String s = binaryToString(0.72, 32);
         System.out.println(s);
@@ -3465,6 +3489,32 @@ public class MainClass {
         int number = (int) (Math.pow(2, num) - 1);
         int mask = ~(number << i);
         return (n & mask) | (m << i);
+    }
+
+    private static boolean getBit(int num, int i) {
+        return (num & (1 << i)) != 0;
+    }
+
+    private static int setBit(int num, int i) {
+        return (num | (1 << i));
+    }
+
+    private static int clearBit(int num, int i) {
+        int mask = ~(1 << i);
+
+        return num & mask;
+    }
+
+    private static int updateBit(int num, int i, boolean v) {
+        int vD = v ? 1 : 0;
+        int clearMask = ~(1 << i);
+        int resultAfterClearing = num & clearMask;
+
+        if (vD == 0) {
+            return resultAfterClearing;
+        }
+
+        return resultAfterClearing | (1 << i);
     }
 
     private static String binaryToString(double i, int k) {
