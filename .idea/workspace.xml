@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a8c9dedb-81c5-4638-8a83-ff13a135c204" name="Default" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -9,6 +12,9 @@
       <change beforePath="$PROJECT_DIR$/out/production/17java/algorithms/ArraySel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/17java/algorithms/ArraySel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/17java/algorithms/MainClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/17java/algorithms/MainClass.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/17java/newjava/NewJava17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/17java/newjava/NewJava17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algorithms/ArrayBub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/ArrayBub.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algorithms/ArrayIns.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/ArrayIns.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algorithms/ArraySel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/ArraySel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/algorithms/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/MainClass.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +29,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/jre/lib/rt.jar!/java/nio/channels/spi/AbstractInterruptibleChannel.class" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/src.zip!/com/sun/jmx/mbeanserver/Repository.java" root0="SKIP_INSPECTION" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/src.zip!/java/lang/Integer.java" root0="SKIP_INSPECTION" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/src.zip!/java/util/Comparator.java" root0="SKIP_INSPECTION" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/src.zip!/java/util/PriorityQueue.java" root0="SKIP_INSPECTION" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/src.zip!/java/util/Queue.java" root0="SKIP_INSPECTION" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/src.zip!/java/util/concurrent/BlockingQueue.java" root0="SKIP_INSPECTION" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/src.zip!/java/util/concurrent/PriorityBlockingQueue.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/src.zip!/java/util/concurrent/locks/AbstractQueuedSynchronizer.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/src.zip!/java/util/concurrent/locks/Condition.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/src.zip!/java/util/concurrent/locks/Lock.java" root0="SKIP_INSPECTION" />
@@ -31,6 +44,8 @@
     <setting file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/src.zip!/java/util/concurrent/locks/ReadWriteLock.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/src.zip!/java/util/concurrent/locks/ReentrantLock.java" root0="SKIP_INSPECTION" />
     <setting file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/src.zip!/java/util/concurrent/locks/ReentrantReadWriteLock.java" root0="SKIP_INSPECTION" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/src.zip!/sun/nio/ch/Interruptible.java" root0="SKIP_INSPECTION" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/src.zip!/sun/rmi/transport/tcp/TCPTransport.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -56,6 +71,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
@@ -155,16 +173,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/aleksaaa555/IdeaProjects/17java",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/aleksaaa555/IdeaProjects/17java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
@@ -231,11 +258,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
       <option name="BCName" value="" />
       <option name="IOSSimulatorSdkPath" value="" />
@@ -296,15 +318,6 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <pass-parent-envs>true</pass-parent-envs>
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -317,6 +330,11 @@
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -346,6 +364,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -362,6 +389,36 @@
       <workItem from="1429218427779" duration="765000" />
       <workItem from="1429344360282" duration="61701000" />
       <workItem from="1660666008827" duration="1710000" />
+      <workItem from="1671795231446" duration="1737000" />
+      <workItem from="1671859752928" duration="739000" />
+      <workItem from="1672025316175" duration="478000" />
+      <workItem from="1682914289131" duration="3012000" />
+      <workItem from="1682946642663" duration="661000" />
+      <workItem from="1683340701815" duration="1210000" />
+      <workItem from="1683352491322" duration="1204000" />
+      <workItem from="1683691410446" duration="14118000" />
+      <workItem from="1686394125166" duration="291000" />
+      <workItem from="1686655208393" duration="7410000" />
+      <workItem from="1688976151260" duration="639000" />
+      <workItem from="1689824214731" duration="12000" />
+      <workItem from="1691478409058" duration="3181000" />
+      <workItem from="1691481729369" duration="284000" />
+      <workItem from="1693539424408" duration="57000" />
+      <workItem from="1693819635245" duration="2795000" />
+      <workItem from="1694475878661" duration="2001000" />
+      <workItem from="1694562703268" duration="31000" />
+      <workItem from="1694625317312" duration="2659000" />
+      <workItem from="1694640708448" duration="631000" />
+      <workItem from="1694641981991" duration="1092000" />
+      <workItem from="1694709571024" duration="623000" />
+      <workItem from="1694801188260" duration="1448000" />
+      <workItem from="1694895939582" duration="1245000" />
+      <workItem from="1694907966161" duration="608000" />
+      <workItem from="1695071397693" duration="1152000" />
+      <workItem from="1695072993763" duration="597000" />
+      <workItem from="1695155671192" duration="2893000" />
+      <workItem from="1695251955299" duration="2280000" />
+      <workItem from="1695337220640" duration="1778000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1660596487953</created>
@@ -370,7 +427,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660596487953</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update">
+      <created>1662058941495</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1662058941495</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -436,6 +500,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update" />
     <option name="LAST_COMMIT_MESSAGE" value="update" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

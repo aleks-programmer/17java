@@ -3,7 +3,6 @@ package algorithms;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.locks.*;
 
 /**
  * Created by User on 22.04.2015.
@@ -757,7 +756,7 @@ public class MainClass {
     }
 
     public static void towersOfHanoi(Stack<Integer> source, Stack<Integer> destination, Stack<Integer> buffer,
-     int topN) {
+                                     int topN) {
         if (topN == 1) {
             destination.push(source.pop());
             return;
@@ -2044,7 +2043,7 @@ public class MainClass {
         int i1 = pathsWithSum(root, 3);
         System.out.println(i1);
         int insertion = insertion(1024, 19, 2, 6);
-        System.out.println(insertion);
+        System.out.println("Insertion: " + insertion);
 
         boolean bool = getBit(3, 1);
         System.out.println("Get Bit: " + bool);
@@ -2058,11 +2057,11 @@ public class MainClass {
         int ur = updateBit(3, 1, false);
         System.out.println("Update Bit: " + ur);
 
-        String s = binaryToString(0.72, 32);
-        System.out.println(s);
+        String s = binaryToString(0.75, 32);
+        System.out.println("BinaryToString: " + s);
 
         int i2 = flipBitToWin(1775);
-        System.out.println(i2);
+        System.out.println("Flip Bit to Win: " + i2);
 
         nextNumber(5);
 
@@ -2240,6 +2239,26 @@ public class MainClass {
             }
         }
         System.out.println("eight Queens end");
+
+        System.out.println("largest area of histogram start");
+        // 2 1 5 6 2 3 = 10
+        System.out.printf("Largest ares is %s", largestAreaOfHistogram(new int[]{2, 1, 5, 6, 2, 3}));
+        System.out.println();
+        System.out.println("largest area of histogram end");
+
+        System.out.println("Sum of subarr mins start");
+        System.out.println("Result: " + sumSubarrayMins(new int[]{3, 1, 2, 4}));
+        System.out.println("Sum of subarr mins end");
+
+        System.out.println("Gas Station start");
+        System.out.println("Result: " + canCompleteCircuit(new int[]{1, 2, 3, 4, 5},
+                new int[]{3, 4, 5, 1, 2}));
+        System.out.println("Gas Station end");
+
+        System.out.println("Reverse number start");
+        System.out.println("Result: " + reverseNumber(15));
+        System.out.println("Reverse number end");
+
     }
 
     private static List<List<Integer>> findPathInBinaryTree(TreeNode find, TreeNode root) {
@@ -3485,76 +3504,72 @@ public class MainClass {
     }
 
     private static int insertion(int n, int m, int i, int j) {
-        int num = j - i + 1;
-        int number = (int) (Math.pow(2, num) - 1);
-        int mask = ~(number << i);
-        return (n & mask) | (m << i);
+        return (m << i) | ~((int) (Math.pow(2, j - i + 1) - 1) << i) & n;
     }
 
     private static boolean getBit(int num, int i) {
-        return (num & (1 << i)) != 0;
+        return ((1 << i) & num) != 0;
     }
 
     private static int setBit(int num, int i) {
-        return (num | (1 << i));
+        return num | (1 << i);
     }
 
     private static int clearBit(int num, int i) {
-        int mask = ~(1 << i);
-
-        return num & mask;
+        return ~(1 << i) & num;
     }
 
     private static int updateBit(int num, int i, boolean v) {
-        int vD = v ? 1 : 0;
-        int clearMask = ~(1 << i);
-        int resultAfterClearing = num & clearMask;
+        int value = v ? 1 : 0;
+        int valueWithClearedBit = ~(1 << i) & num;
 
-        if (vD == 0) {
-            return resultAfterClearing;
-        }
-
-        return resultAfterClearing | (1 << i);
+        return valueWithClearedBit | (value << i);
     }
 
     private static String binaryToString(double i, int k) {
-        int maxFranctional = k - 2;
+        int max = k - 2;
+        double temp = i;
         StringBuilder result = new StringBuilder("0.");
-        if (i == 0) return String.valueOf(i);
-        if (i == 1) return String.valueOf(i);
 
-        for (int i1 = 0; i1 < maxFranctional; i1++) {
-            i = i * 2;
-            int integralPart = (int) i;
-            if (i >= 1) i = i - 1;
-            result.append(integralPart);
-            if (i == 0.0d) return result.toString();
+        for (int j = 0; j < max; j++) {
+            temp *= 2;
+            int integral = (int) temp;
+            result.append(integral);
+
+            if (temp - integral == 0) {
+                return result.toString();
+            }
+
+            temp -= integral;
         }
 
-        return "Error";
+        return "ERROR";
     }
 
     private static int flipBitToWin(int number) {
         int max = 0;
         int count = 0;
+        int flipPos = -1;
         int prevStartPos = -1;
-        int flipPosition = -1;
-        for (int i = 0; i < 31; i++) {
+
+        for (int i = 0; i < 32; i++) {
             int temp = (1 << i) | number;
+
             if (temp != number) {
-
-
                 count = i - prevStartPos - 1;
 
-                prevStartPos = flipPosition;
+                prevStartPos = flipPos;
+
                 if (count > max) {
                     max = count;
                 }
-                flipPosition = i;
+
+                flipPos = i;
             }
         }
 
-        count = 31 - prevStartPos - 1;
+        count = 32 - prevStartPos - 1;
+
         if (count > max) {
             max = count;
         }
@@ -3698,6 +3713,155 @@ public class MainClass {
         return true;
     }
 
+
+    private static int largestAreaOfHistogram(int[] histogram) {
+        Stack<Integer> stack = new Stack<>();
+        int[] left = new int[histogram.length];
+        int[] right = new int[histogram.length];
+        for (int i = 0; i < histogram.length; i++) {
+            if (!stack.isEmpty() && histogram[i] <= histogram[stack.peek()]) {
+                stack.pop();
+            }
+
+            if (stack.isEmpty()) {
+                left[i] = -1;
+            } else {
+                left[i] = stack.peek();
+            }
+
+            stack.push(i);
+        }
+
+        for (int i = histogram.length - 1; i >= 0; i--) {
+            if (!stack.isEmpty() && histogram[i] <= histogram[stack.peek()]) {
+                stack.pop();
+            }
+
+            if (stack.isEmpty()) {
+                right[i] = histogram.length;
+            } else {
+                right[i] = stack.peek();
+            }
+
+            stack.push(i);
+        }
+
+        int maxArea = 0;
+
+        for (int i = 0; i < histogram.length; i++) {
+            maxArea = Math.max(maxArea, (right[i] - left[i] - 1) * histogram[i]);
+        }
+
+        return maxArea;
+    }
+
+    private static int sumSubarrayMins(int[] arr) {
+        int mod = (int) 1e9 + 7;
+        int[] left = new int[arr.length];
+        int[] right = new int[arr.length];
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = 0; i < arr.length; i++) {
+            while (!stack.isEmpty() && arr[stack.peek()] >= arr[i]) {
+                stack.pop();
+            }
+
+            if (stack.isEmpty()) {
+                left[i] = -1;
+            } else {
+                left[i] = stack.peek();
+            }
+
+            stack.push(i);
+        }
+
+        stack.clear();
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+            while (!stack.isEmpty() && arr[stack.peek()] > arr[i]) {
+                stack.pop();
+            }
+
+            if (stack.isEmpty()) {
+                right[i] = arr.length;
+            } else {
+                right[i] = stack.peek();
+            }
+
+            stack.push(i);
+        }
+
+        long sum = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            int leftLength = i - left[i];
+            int rightLength = right[i] - i;
+
+            sum = (sum + ((long) arr[i] * leftLength * rightLength) % mod) % mod;
+        }
+
+        return (int) sum;
+    }
+
+    private static int canCompleteCircuit(int[] gas, int[] cost) {
+        for (int startIndex = 0; startIndex < gas.length; startIndex++) {
+            int tank = 0;
+            int prev = -1;
+            int i = startIndex;
+            boolean checkStartIndexCircle = false;
+
+            while (true) {
+                if (i == gas.length) {
+                    i = 0;
+                }
+
+//                if (prev >= 0 && cost[prev] == cost[i] && gas[prev] == gas[i]) {
+//                    break;
+//                }
+
+                if (checkStartIndexCircle && i == startIndex) {
+                    return i;
+                }
+
+                tank = tank + gas[i];
+
+                if (!isCanTravelToNextStation(tank, i, cost)) {
+                    break;
+                } else {
+                    tank = tank - cost[i];
+                }
+
+                prev = i;
+                i++;
+
+                if (!checkStartIndexCircle) checkStartIndexCircle = true;
+            }
+        }
+
+        return -1;
+    }
+
+    private static boolean isCanTravelToNextStation(int tank, int i, int[] cost) {
+        if (cost[i] > tank) return false;
+        else return true;
+    }
+
+    private static int reverseNumber(int num) {
+        int cur = num;
+        int result = 0;
+
+        while (cur > 0) {
+            int remainder = cur % 10;
+
+            if (result == 0) result = remainder;
+            else result = 10 * result + remainder;
+
+            cur = cur / 10;
+        }
+
+        return result;
+    }
+
     static class TreeNodeWithParent {
         int val;
         TreeNodeWithParent left;
@@ -3741,7 +3905,7 @@ public class MainClass {
     }
 
 
-    static class Queen{
+    static class Queen {
         private String x;
         private String y;
 

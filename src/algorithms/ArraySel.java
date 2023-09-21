@@ -26,8 +26,11 @@ public class ArraySel {
     }
 
     public void selectionSort() {
+        int min;
+
         for (int i = 0; i < nElems - 1; i++) {
-            int min = i;
+            min = i;
+
             for (int j = i + 1; j < nElems; j++) {
                 if (a[j] < a[min]) {
                     swap(j, min);
@@ -35,7 +38,6 @@ public class ArraySel {
                 }
             }
         }
-
     }
 
     public void display()
