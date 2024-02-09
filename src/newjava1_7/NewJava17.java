@@ -1,4 +1,4 @@
-package newjava;
+package newjava1_7;
 
 import java.io.*;
 import java.util.ArrayList;

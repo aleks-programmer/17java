@@ -5,14 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8c9dedb-81c5-4638-8a83-ff13a135c204" name="Default" comment="update">
+      <change afterPath="$PROJECT_DIR$/src/algorithms/AlgPart2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/17java/algorithms/ArrayBub.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/17java/algorithms/ArrayBub.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/17java/algorithms/ArrayIns.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/17java/algorithms/ArrayIns.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/17java/algorithms/ArrayInsObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/17java/algorithms/ArrayInsObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/17java/algorithms/ArraySel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/17java/algorithms/ArraySel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/17java/algorithms/CharWord.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/17java/algorithms/CharWord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/17java/algorithms/HighArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/17java/algorithms/HighArray.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/17java/algorithms/LowArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/17java/algorithms/LowArray.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/17java/algorithms/MainClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/17java/algorithms/MainClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/17java/algorithms/OrderedArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/17java/algorithms/OrderedArray.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/17java/algorithms/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/17java/algorithms/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/17java/newjava/A.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/17java/newjava/A.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/17java/newjava/B.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/17java/newjava/B.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/17java/newjava/NewJava17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/17java/newjava/NewJava17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithms/ArrayBub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/ArrayBub.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/algorithms/ArrayIns.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/ArrayIns.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/algorithms/ArraySel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/ArraySel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/algorithms/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/MainClass.java" afterDir="false" />
@@ -24,6 +32,13 @@
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -175,10 +190,13 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.AlgPart2.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.algorithms.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/aleksaaa555/IdeaProjects/17java&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -192,7 +210,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.algorithms">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -258,6 +276,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
       <option name="BCName" value="" />
       <option name="IOSSimulatorSdkPath" value="" />
@@ -318,6 +341,38 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <method v="2" />
+    </configuration>
+    <configuration name="AlgPart2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="algorithms.AlgPart2" />
+      <module name="17java" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="algorithms.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -330,11 +385,6 @@
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -355,24 +405,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file enabled="true" id="idea.log" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <pass-parent-envs>true</pass-parent-envs>
-      <method v="2" />
-    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AlgPart2" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-3183f394aec4-96c0d24d" />
+        <option value="jdk-17.0.9-corretto-17.0.9-4caba194b151-92e50af3" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -418,7 +464,26 @@
       <workItem from="1695072993763" duration="597000" />
       <workItem from="1695155671192" duration="2893000" />
       <workItem from="1695251955299" duration="2280000" />
-      <workItem from="1695337220640" duration="1778000" />
+      <workItem from="1695337220640" duration="3663000" />
+      <workItem from="1695424489621" duration="2921000" />
+      <workItem from="1695428101160" duration="598000" />
+      <workItem from="1695665922591" duration="5986000" />
+      <workItem from="1695770973551" duration="611000" />
+      <workItem from="1695846768183" duration="598000" />
+      <workItem from="1695934589763" duration="1207000" />
+      <workItem from="1696025336825" duration="598000" />
+      <workItem from="1696283393109" duration="1197000" />
+      <workItem from="1696290215864" duration="53000" />
+      <workItem from="1696374343669" duration="1538000" />
+      <workItem from="1696457896478" duration="3869000" />
+      <workItem from="1696541272809" duration="3541000" />
+      <workItem from="1696634551229" duration="2443000" />
+      <workItem from="1697091989121" duration="597000" />
+      <workItem from="1697258620381" duration="600000" />
+      <workItem from="1697438953835" duration="598000" />
+      <workItem from="1697458980724" duration="598000" />
+      <workItem from="1697515786030" duration="17000" />
+      <workItem from="1706075428566" duration="4988000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1660596487953</created>
@@ -434,7 +499,15 @@
       <option name="project" value="LOCAL" />
       <updated>1662058941495</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update">
+      <option name="closed" value="true" />
+      <created>1695339321659</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1695339321659</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -498,6 +571,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="update" />
     <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
